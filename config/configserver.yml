@@ -1,0 +1,12 @@
+security.basic.enable: false
+management.security.enabled: false
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+         #uri: https://github.com/razorcd/spring-cloud-demo-project
+         uri: file:///home/razor/projects/personal/spring-cloud-demo-project
+         searchPaths: config

@@ -1,9 +1,3 @@
 spring:
   application:
     name: microservice1
-server:
-  port: 8001
-
-microservice1-endpoint: http://localhost:8001
-microservice2-endpoint: http://localhost:8002
-microservice3-endpoint: http://localhost:8003
