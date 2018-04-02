@@ -13,10 +13,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/publicpage").permitAll()
+        http.authorizeRequests().antMatchers("/public").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().successForwardUrl("/privatepage").permitAll()
+                .formLogin().successForwardUrl("/private").permitAll()
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/")
                 .and()

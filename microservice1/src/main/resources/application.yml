@@ -21,3 +21,10 @@
 #    client-auth: want
 #    protocol: TLSv1
 #
+
+spring:
+  application:
+    name: microservice1
+server:
+  port: 8001
+microservice2-endpoint: http://localhost:8002
