@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -58,6 +59,6 @@ public class DemoApplication {
     public String getAll() {
         ResponseEntity<String[]> responseEntity = restTemplate.getForEntity(microservice3Endpoint+"/getall", String[].class);
 
-        return "Microservice1 - getall response: " + responseEntity.getBody();
+        return "Microservice1 - getall response: " + Arrays.toString(responseEntity.getBody());
     }
 }
