@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Random;
 
 @SpringBootApplication
 @RestController
@@ -22,6 +24,9 @@ public class DemoApplication {
 	@Value("${microservice2-endpoint}")
     String microservice2Endpoint;
 
+    @Value("${microservice3-endpoint}")
+    String microservice3Endpoint;
+
 	@Autowired
     RestTemplate restTemplate;
 
@@ -33,15 +38,26 @@ public class DemoApplication {
 
     @RequestMapping("/private")
 	public String getTest() {
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(microservice2Endpoint+"/privatedata", String.class);
+        Integer id = new Random().nextInt();
+        restTemplate.postForEntity(microservice3Endpoint+"/add", "private id " + id.toString(), null);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(microservice2Endpoint+"/privatedata/"+id, String.class);
 
         return "Microservice1 - private response: " + responseEntity.getBody();
 	}
 
     @RequestMapping("/public")
     public String getTestPublic() {
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(microservice2Endpoint+"/publicdata", String.class);
+        Integer id = new Random().nextInt();
+        restTemplate.postForEntity(microservice3Endpoint+"/add", "public id " + id.toString(), null);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(microservice2Endpoint+"/publicdata/"+id, String.class);
 
         return "Microservice1 - public response: " + responseEntity.getBody();
+    }
+
+    @RequestMapping("/public/getall")
+    public String getAll() {
+        ResponseEntity<String[]> responseEntity = restTemplate.getForEntity(microservice3Endpoint+"/getall", String[].class);
+
+        return "Microservice1 - getall response: " + responseEntity.getBody();
     }
 }
