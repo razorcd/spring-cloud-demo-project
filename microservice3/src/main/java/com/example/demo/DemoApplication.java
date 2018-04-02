@@ -3,10 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,14 +18,13 @@ public class DemoApplication {
 	@Autowired
 	StoreService storeService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-
+    @RequestMapping(value = "/data/{id}", method = RequestMethod.POST)
 	//TODO: add different threads. Then start app with multiple threads.<
-	public void add(@RequestBody String id) {
-        storeService.add(id);
+	public void add(@PathVariable String id, @RequestBody String data) {
+        storeService.add(id, data);
 	}
 
-	@RequestMapping(value = "/getall", method = RequestMethod.GET)
+	@RequestMapping(value = "/data", method = RequestMethod.GET)
 	public List<String> getAll() {
 		return storeService.getAll();
 	}

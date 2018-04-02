@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @SpringBootApplication
 @RestController
 public class DemoApplication {
@@ -14,8 +16,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-    @RequestMapping("/publicdata/{id}")
-	public String getTest(@PathVariable String id) {
-        return "Microservice2 - private DATA response with id: "+id+".";
+    @RequestMapping("/ids/generate")
+	public String getTest() {
+		Integer id = new Random().nextInt();
+        return id.toString();
 	}
 }

@@ -10,8 +10,8 @@ public class StoreService {
 
     private List<String> store = new ArrayList<>();
 
-    public synchronized void add(String id) {
-        store.add(id);
+    public synchronized void add(String id, String data) {
+        store.add(id + " " + data);
     }
 
     public List<String> getAll() {

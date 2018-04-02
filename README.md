@@ -12,6 +12,6 @@ Microservice1 (Web Edge Server) -----> Microservice2 (generates random id)
 #### Microservice1 (Web Edge Server) endpoints:
 
 - public `GET localhost:8001/public/getall` - retuns all data
-- public `POST localhost:8003/add  -d "some data"` - stores the data with a random id
+- public `POST localhost:8001/public/add  -d "some data"` - stores the data with a random id
 
 
