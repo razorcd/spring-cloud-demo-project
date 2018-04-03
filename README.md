@@ -1,4 +1,3 @@
-! This project is still WIP
 
 ### Spring Cloud Demo Project
 
