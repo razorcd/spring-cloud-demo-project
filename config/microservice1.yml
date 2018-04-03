@@ -1,6 +1,6 @@
 server:
   port: 8001
 
-microservice1-endpoint: http://localhost:8001
-microservice2-endpoint: http://localhost:8002
-microservice3-endpoint: http://localhost:8003
+microservice1-endpoint: http://microservice1
+microservice2-endpoint: http://microservice2
+microservice3-endpoint: http://microservice3

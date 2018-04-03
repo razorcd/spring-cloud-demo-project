@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LoggingConfig {
 
-    @Bean
+    @Bean // to be traced with Sleuth in Zipkin
     public Sampler getSampler() {
         return new AlwaysSampler();
     }
