@@ -2,15 +2,15 @@
 ### Spring Cloud Demo Project
 
 This repo serves as a demo project for various Spring Cloud infrastucture tools. The 3 microservices serve as dummy applications for the demo and they are comunicationg via http.
-The system is receiving data through a public server, puts and id on the data and stores it. Each microservice has different concern that is described below.
+The system is receiving data through a public server, puts and id on the data using a second microservice and stores it using a third microservice. Each microservice has a different concern described below.
 
 #### Architecture
 ```
-Microservice1 (Web Edge Server) -----> Microservice2 (generates random id)
+Microservice1 (Web Edge Server) ---(Feign)--> Microservice2 (generates random id)
     |
-    ---------------------------------> Microservice3 (stores data)
+    --------------(restTemplate)-------------------> Microservice3 (stores data)
 ```
-#### Microservice1 (Web Edge Server) endpoints:
+#### Microservice1 (Edge API Server) endpoints:
 
 - public `curl -X GET http://localhost:8001/public/getall` - retuns all data
 - public `curl -X POST http://localhost:8001/public/add -H 'content-type: text/plain' -d "some data"` - stores the data with a random id
@@ -39,7 +39,7 @@ Microservice1 (Web Edge Server) -----> Microservice2 (generates random id)
 - Feign: for client mapping
 - Hystrix: circuit breaker fallback (also integrates with Feign for unreacheable services)
 - Slouth and Zipkin: request logging with trace and monitoring
-
+- Zuul: reverse proxy using the service discovery
 
 
 
