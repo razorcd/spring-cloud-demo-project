@@ -6,11 +6,11 @@ This repo serves as a demo project for various Spring Cloud infrastucture tools.
 The system is receiving data through a public server, puts and id on the data and stores it. Each microservice has different concern that is described below.
 
 #### Architecture
-
+```
 Microservice1 (Web Edge Server) -----> Microservice2 (generates random id)
     |
     ---------------------------------> Microservice3 (stores data)
-
+```
 #### Microservice1 (Web Edge Server) endpoints:
 
 - public `GET localhost:8001/public/getall` - retuns all data
