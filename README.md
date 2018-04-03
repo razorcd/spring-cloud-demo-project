@@ -29,14 +29,14 @@ Microservice1 (Web Edge Server) -----> Microservice2 (generates random id)
     - open Zipkin http://localhost:9411
 - open Swagger UI: http://localhost:8001/swagger-ui.html
 - open Hystrix Dashboard: http://localhost:8001/hystrix.html . Monitor stream: `http://localhost:8001/hystrix.stream`
-
+- access other microservices through Zuul proxy: `curl -X GET http://localhost:8001/microservice3/data`
 
 
 #### Dependecies used
 
 - Eureka: service discovery
 - ConfigServer: centralised configs
-- Ribbon: load balancing for multiple service instances
+- Ribbon: client side load balancing over multiple service instances
 - Feign: for client mapping
 - Hystrix: circuit breaker fallback (also integrates with Feign for unreacheable services)
 - Slouth and Zipkin: request logging with trace and monitoring
