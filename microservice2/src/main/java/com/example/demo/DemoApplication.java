@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
@@ -21,7 +22,7 @@ public class DemoApplication {
 
     private static final Logger LOGGER = Logger.getLogger(DemoApplication.class.getName());
 
-    @RequestMapping("/ids/generate")
+    @RequestMapping(value = "/ids/generate", method = RequestMethod.GET)
 	public String getTest() {
 		Integer id = new Random().nextInt();
 		LOGGER.info("Generated id: "+id);
