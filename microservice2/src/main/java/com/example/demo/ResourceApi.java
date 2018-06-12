@@ -16,6 +16,6 @@ public interface ResourceApi {
     @RequestMapping(method = RequestMethod.POST)
     void createResource(@RequestBody ResourceDto resourceDto);
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     void deleteResource(@PathVariable long id);
 }
