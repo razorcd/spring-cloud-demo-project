@@ -15,19 +15,19 @@ public class ResourceController implements ResourceApi {
     public List<ResourceDto> getResources() {
         return resourceDtos;
     }
-
-    @Override
-    public void createResource(@RequestBody  ResourceDto resourceDto) {
-        resourceDtos.add(resourceDto);
-    }
-
-    @Override
-    public void deleteResource(long id) {
-        for (ResourceDto r : resourceDtos) {
-            if (r.getId()==id) {
-                resourceDtos.remove(r);
-                return;
-            }
-        }
-    }
+//
+//    @Override
+//    public void createResource(@RequestBody  ResourceDto resourceDto) {
+//        resourceDtos.add(resourceDto);
+//    }
+//
+//    @Override
+//    public void deleteResource(long id) {
+//        for (ResourceDto r : resourceDtos) {
+//            if (r.getId()==id) {
+//                resourceDtos.remove(r);
+//                return;
+//            }
+//        }
+//    }
 }

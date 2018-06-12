@@ -2,8 +2,11 @@ package com.example.microservice1;
 
 import com.example.microservice2.ResourceApi;
 import com.example.microservice2.ResourceDto;
+import feign.Client;
 import feign.Feign;
 import feign.Logger;
+import feign.codec.Decoder;
+import feign.codec.Encoder;
 import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.support.SpringMvcContract;
@@ -20,14 +23,15 @@ public class ResourceForwarderController {
 
     ResourceApi resourceApi;
 
-    public ResourceForwarderController() {
+    @Autowired
+    public ResourceForwarderController(Client feignClinet) {
 
         this.resourceApi= Feign.builder()
-                .client(client)
+                .client(feignClinet)
                 .contract(new SpringMvcContract())
 //                .client(new OkHttpClient())
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
+                .encoder(new Encoder.Default())
+                .decoder(new Decoder.Default())
                 .logger(new Slf4jLogger(ResourceApi.class))
                 .logLevel(Logger.Level.FULL)
                 .target(ResourceApi.class, "http://localhost:8081");

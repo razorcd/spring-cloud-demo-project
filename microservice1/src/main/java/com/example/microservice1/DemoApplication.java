@@ -9,10 +9,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 //@EnableDiscoveryClient // to be discovered by Eureka
-@EnableZuulProxy // to access other services using service discovery
-@EnableFeignClients
-@EnableCircuitBreaker
-@EnableHystrixDashboard
+//@EnableZuulProxy // to access other services using service discovery
+//@EnableFeignClients
+//@EnableCircuitBreaker
+//@EnableHystrixDashboard
 public class DemoApplication {
 
 	public static void main(String[] args) {

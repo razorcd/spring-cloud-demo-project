@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     @Bean
-    @LoadBalanced // Ribbon - for service discovery by name
+//    @LoadBalanced // Ribbon - for service discovery by name
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
