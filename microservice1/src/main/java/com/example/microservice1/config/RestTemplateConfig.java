@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.microservice1.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

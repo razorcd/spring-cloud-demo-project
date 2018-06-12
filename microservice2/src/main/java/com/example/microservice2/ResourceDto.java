@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.microservice2;
 
 import java.util.Objects;
 

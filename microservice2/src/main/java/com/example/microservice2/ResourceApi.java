@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.microservice2;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

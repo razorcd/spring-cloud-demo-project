@@ -1,4 +1,4 @@
-package com.example.demo.client.microservice2;
+package com.example.microservice1.client.microservice2;
 
 import org.springframework.stereotype.Component;
 

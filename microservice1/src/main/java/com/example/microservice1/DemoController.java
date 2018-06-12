@@ -1,6 +1,6 @@
-package com.example.demo;
+package com.example.microservice1;
 
-import com.example.demo.client.microservice2.DemoService;
+import com.example.microservice1.client.microservice2.DemoService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

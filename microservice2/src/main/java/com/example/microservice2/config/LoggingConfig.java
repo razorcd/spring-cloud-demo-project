@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.microservice2.config;
 
 import org.springframework.cloud.sleuth.Sampler;
 import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LoggingConfig {
 
-    @Bean // to be traced with Sleuth in Zipkin
+    @Bean
     public Sampler getSampler() {
         return new AlwaysSampler();
     }
