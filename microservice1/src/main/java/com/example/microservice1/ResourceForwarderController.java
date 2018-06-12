@@ -2,11 +2,13 @@ package com.example.microservice1;
 
 import com.example.microservice2.ResourceApi;
 import com.example.microservice2.ResourceDto;
-import feign.Client;
-import feign.Feign;
-import feign.Logger;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import feign.*;
+import feign.codec.DecodeException;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.support.SpringMvcContract;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,10 +32,10 @@ public class ResourceForwarderController {
 
         this.resourceApi= Feign.builder()
                 .client(feignClinet)
-                .contract(new SpringMvcContract())
 //                .client(new OkHttpClient())
-                .encoder(new Encoder.Default())
-                .decoder(new Decoder.Default())
+                .contract(new SpringMvcContract())
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
                 .logger(new Slf4jLogger(ResourceApi.class))
                 .logLevel(Logger.Level.FULL)
                 .target(ResourceApi.class, "http://localhost:8081");
