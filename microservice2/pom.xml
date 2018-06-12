@@ -96,6 +96,25 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>bundle-jar</id>
+						<phase>package</phase>
+						<!--<goals>-->
+						<!--<goal>jar</goal>-->
+						<!--</goals>-->
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>**/microservice2/*</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
