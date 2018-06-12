@@ -1,4 +1,7 @@
 
-  feign:
-      hystrix:
-          enabled: true
+feign:
+    hystrix:
+        enabled: true
+
+microservice2-endpoint: "microservice2"
+microservice3-endpoint: "microservice3"

@@ -17,7 +17,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("MS1")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.demo"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.microservice1"))
                 .paths(PathSelectors.any())
                 .build()
 //                .pathMapping("/public") // adds another contextpath to app api

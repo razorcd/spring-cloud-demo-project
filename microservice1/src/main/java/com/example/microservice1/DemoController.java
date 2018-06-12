@@ -1,6 +1,6 @@
 package com.example.microservice1;
 
-import com.example.microservice1.client.microservice2.DemoService;
+import com.example.microservice1.client.microservice2.DemoServiceFallbackImpl;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,7 +34,7 @@ public class DemoController {
     RestTemplate restTemplate;
 
 	@Autowired
-    DemoService microservice2DemoService;
+    DemoServiceFallbackImpl microservice2DemoService;
 
 
     @RequestMapping(value = "/principal", method = RequestMethod.GET)
