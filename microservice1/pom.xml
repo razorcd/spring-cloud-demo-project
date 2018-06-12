@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>com.example.microservice2</groupId>
 			<artifactId>example-microservice2</artifactId>
-			<version>0.1.3</version>
+			<version>0.1.4</version>
 		</dependency>
 		<!--cloud-->
 		<!--<dependency>-->

@@ -5,7 +5,7 @@
 
 	<groupId>com.example.microservice2</groupId>
 	<artifactId>example-microservice2</artifactId>
-	<version>0.1.3</version>
+	<version>0.1.4</version>
 	<packaging>jar</packaging>
 
 	<name>Microservice2</name>
@@ -95,52 +95,52 @@
 
 	<build>
 		<plugins>
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-jar-plugin</artifactId>-->
-				<!--<version>3.1.0</version>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>bundle-jar</id>-->
-						<!--<phase>package</phase>-->
-						<!--&lt;!&ndash;<goals>&ndash;&gt;-->
-						<!--&lt;!&ndash;<goal>jar</goal>&ndash;&gt;-->
-						<!--&lt;!&ndash;</goals>&ndash;&gt;-->
-					<!--</execution>-->
-				<!--</executions>-->
-				<!--<configuration>-->
-					<!--<includes>-->
-						<!--<include>**/microservice2/*</include>-->
-					<!--</includes>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>bundle-jar</id>
+						<phase>package</phase>
+						<!--<goals>-->
+						<!--<goal>jar</goal>-->
+						<!--</goals>-->
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>**/microservice2/*</include>
+					</includes>
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-source-plugin</artifactId>-->
-				<!--<configuration>-->
-					<!--<skipSource>true</skipSource>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<skipSource>true</skipSource>
+				</configuration>
+			</plugin>
 
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-surefire-plugin</artifactId>-->
-				<!--<configuration>-->
-					<!--<forkMode>once</forkMode>-->
-					<!--<reportFormat>plain</reportFormat>-->
-					<!--<trimStackTrace>false</trimStackTrace>-->
-					<!--<excludes>-->
-						<!--<exclude>**/AllTest.java</exclude>-->
-						<!--<exclude>**/PackageTest.java</exclude>-->
-					<!--</excludes>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkMode>once</forkMode>
+					<reportFormat>plain</reportFormat>
+					<trimStackTrace>false</trimStackTrace>
+					<excludes>
+						<exclude>**/AllTest.java</exclude>
+						<exclude>**/PackageTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
