@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.example.microservice1</groupId>
-	<artifactId>example-microservice1</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>microservice1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -39,9 +39,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.example.microservice2</groupId>
-			<artifactId>example-microservice2</artifactId>
-			<version>0.1.4</version>
+			<groupId>com.example</groupId>
+			<artifactId>microservice2</artifactId>
+			<version>0.1.6</version>
 		</dependency>
 		<!--cloud-->
 		<!--<dependency>-->
