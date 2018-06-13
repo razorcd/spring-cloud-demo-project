@@ -1,19 +1,22 @@
 package com.example.microservice2;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@RequestMapping("/resource")
+
+@RequestMapping(value = "/resource", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public interface ResourceApi {
 
     @RequestMapping(method = RequestMethod.GET)
     List<ResourceDto> getResources();
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    void createResource(@RequestBody ResourceDto resourceDto);
-//
+    @RequestMapping(method = RequestMethod.POST)
+    void createResource(@RequestBody ResourceDto resourceDto);
+
 //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 //    void deleteResource(@PathVariable long id);
 }

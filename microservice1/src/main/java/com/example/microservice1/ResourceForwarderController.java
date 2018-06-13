@@ -12,6 +12,7 @@ import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.support.SpringMvcContract;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/resourceforwarder")
@@ -60,8 +62,13 @@ public class ResourceForwarderController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<ResourceDto> getResources() {
+    public List<ResourceDto> getResources() {
 //        return Arrays.asList(new ResourceDto(1,"data1"));
         return resourceApi.getResources();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void setResource(@RequestBody String data) {
+        resourceApi.createResource(new ResourceDto(new Random().nextLong(), data));
     }
 }
