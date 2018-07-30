@@ -27,20 +27,22 @@ import java.util.Random;
 @RequestMapping("/resourceforwarder")
 public class ResourceForwarderController {
 
-    ResourceApi resourceApi;
-
     @Autowired
-    public ResourceForwarderController(Client feignClinet) {
+    private ResourceApi resourceApi;
 
-        this.resourceApi= Feign.builder()
-                .client(feignClinet)
-//                .client(new OkHttpClient())
-                .contract(new SpringMvcContract())
-                .encoder(new JacksonEncoder())
-                .decoder(new JacksonDecoder())
-                .logger(new Slf4jLogger(ResourceApi.class))
-                .logLevel(Logger.Level.FULL)
-                .target(ResourceApi.class, "http://localhost:8081");
+//    @Autowired
+//    public ResourceForwarderController(Client feignClinet) {
+//
+//        this.resourceApi= Feign.builder()
+//                .client(feignClinet)
+////                .client(new OkHttpClient())
+//                .contract(new SpringMvcContract())
+//                .encoder(new JacksonEncoder())
+//                .decoder(new JacksonDecoder())
+//                .logger(new Slf4jLogger(ResourceApi.class))
+//                .logLevel(Logger.Level.FULL)
+//                .target(ResourceApi.class, "http://localhost:8081");
+//    }
 
 //        		<dependency>
 //			<groupId>io.github.openfeign</groupId>
@@ -59,7 +61,6 @@ public class ResourceForwarderController {
 //			<artifactId>feign-slf4j</artifactId>
 //			<version>9.7.0</version>
 //		</dependency>
-    }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<ResourceDto> getResources() {
